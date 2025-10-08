@@ -32,7 +32,7 @@ const LandingPage = () => {
         </div>
 
         {/* 🚀 SECTION 2: COMMUNITY PREVIEW / USER CARDS */}
-        <div className="animate-user-area flex justify-around items-center gap-8 mt-20 mb-10">
+        <div className="animate-user-area flex justify-around items-center gap-8 mt-10 mb-10">
           {/* 🧩 CARD 1: Progress or Activity Feed */}
           <div className="card1 w-2/7 flex flex-col justify-between gap-5">
             {/* ✅ Color Palette for creative vibe */}
