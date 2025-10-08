@@ -1,6 +1,8 @@
 import LandingPage from "./components/LandingPage";
 import CommunityPage from "./components/CommunityPage";
 import Header from "./components/Header";
+import ProjectShowCase from "./components/ProjectShowcase";
+import Hackathon from "./components/Hackathon";
 
 const App = () => {
   return (
@@ -8,6 +10,8 @@ const App = () => {
       <LandingPage />
       <Header />
       <CommunityPage />
+      <ProjectShowCase />
+      <Hackathon />
     </div>
   );
 };

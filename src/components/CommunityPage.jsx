@@ -1,8 +1,8 @@
 const CommunityPage = () => {
   return (
-    <div className="community-section bg-black text-white px-5 pt-25">
+    <div className="community-section bg-black text-white px-5 pt-25 ">
       {/* community-section heading */}
-      <div className="mb-10">
+      <div className="mb-5">
         <h1 className="font-bold text-6xl mb-5">
           A Space Where Every <br />
           Creator Belongs.
@@ -20,7 +20,7 @@ const CommunityPage = () => {
 
       {/* community-section catalog */}
 
-      <div className="w-full h-154 flex justify-between gap-3">
+      <div className="w-full h-154 flex justify-between gap-3 mt-15">
         {/* part 1 - dashboard + task management, public community, trending-domain*/}
         <div className="dashboard-public-task flex flex-col justify-between gap-3 h-full w-1/2">
           {/* area 1 - public-community, trending-domain */}
