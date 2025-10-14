@@ -1,6 +1,6 @@
 const Hackathon = () => {
   return (
-    <section className="hackathon-section w-full bg-[#1A1A1D] px-5 pt-8">
+    <section className="hackathon-section w-full bg-[#1A1A1D] px-5 pt-8 pb-10">
       {/* //* hackathon heading */}
       <div className="hackathon-heading text-center">
         <h1 className="font-extrabold text-8xl mb-5">
@@ -12,7 +12,7 @@ const Hackathon = () => {
       </div>
 
       {/*  //* hackathon content */}
-      <div className="hackathon-content w-full h-134 mt-10 flex justify-end items-center gap-15">
+      <div className="hackathon-content w-full h-134 mt-10   flex justify-end items-center gap-15">
         {/* //* Hackathon Orbit */}
         <div className="hackathon-orbit h-full bg-transparent w-1/3 rounded-2xl p-2 outline outline-neutral-500">
           <div className="bg-[#262726]/80 h-full w-full rounded-xl p-5 text-white">
