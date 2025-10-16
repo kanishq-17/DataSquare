@@ -52,7 +52,7 @@ const LandingPage = () => {
     {
       id: 3,
       img: "/vinit.jpg",
-      designation: "SpringBoot",
+      designation: "SPRINGBOOT",
       name: "Vinit Modi",
       username: "@modiji",
       skills: "25",
@@ -106,21 +106,21 @@ const LandingPage = () => {
     // array 2
     [
       {
-        img: "/riya_verma.jpg",
+        img: "/Riya.jpg",
         name: "Riya Verma",
         task: "Shared 'React GSAP Animation Guide'",
         time: "8min",
         notification: "POSTED",
       },
       {
-        img: "/rohit_singh.jpg",
+        img: "/rohit.jpg",
         name: "Rohit Singh",
         task: "Achieved 'Fullstack Developer Badge'",
         time: "2h",
         notification: "CERTIFIED",
       },
       {
-        img: "/emily_clark.jpg",
+        img: "/Emily.jpg",
         name: "Emily Clark",
         task: "Started 'AI Tools in Design' course",
         time: "10h",
@@ -130,21 +130,21 @@ const LandingPage = () => {
     // array 3
     [
       {
-        img: "/arjun_mehta.jpg",
+        img: "/arjun.jpg",
         name: "Arjun Mehta",
         task: "Won 1st Place in 'Hack4Change' Hackathon",
         time: "5min",
         notification: "ACHIEVED",
       },
       {
-        img: "/nisha_patel.jpg",
+        img: "/Nisha.jpg",
         name: "Nisha Patel",
         task: "Uploaded new project — 'HealthTrack App'",
         time: "45min",
         notification: "PUBLISHED",
       },
       {
-        img: "/liam_ross.jpg",
+        img: "/liam.jpg",
         name: "Liam Ross",
         task: "Attending 'Dev Community Meetup'",
         time: "today",

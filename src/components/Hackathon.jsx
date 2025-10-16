@@ -86,31 +86,42 @@ const Hackathon = () => {
         </article>
 
         {/* //* Hackathon Leaderboard */}
-        <aside className="hackathon-leaderboard bg-fuchsia-500 w-1/2 rounded-2xl p-2">
-          {/* //? Leaderboard Info */}
-          <div className="leaderboard-info flex justify-start items-center gap-2">
-            <div className="rounded-xl bg-purple-500 w-1/3 h-40">
-              <h3 className="font-bold p-5">
+        <aside className="hackathon-leaderboard bg-fuchsia-500 w-1/2 rounded-2xl p-2 relative overflow-hidden">
+          {/* Animated Gradient Background + Stars */}
+          <div className="absolute inset-0 z-0 pointer-events-none">
+            <div className="w-full h-full bg-gradient-to-b from-purple-900/50 to-fuchsia-800/40 blur-2xl opacity-70"></div>
+            {/* Glass border shapes/stars */}
+            <div className="absolute top-12 left-16 w-14 h-14 bg-white/10 backdrop-blur-xl rounded-full border border-fuchsia-200/40 animate-pulse"></div>
+            <div className="absolute right-14 top-20 w-16 h-16 bg-purple-300/10 rounded-xl backdrop-blur-lg border border-purple-400/30 animate-move-slow"></div>
+          </div>
+
+          {/* Leaderboard Info (Glassmorphism + Modern UI) */}
+          <div className="leaderboard-info flex justify-start items-center gap-2 relative z-10">
+            <div className="rounded-xl bg-white/10 backdrop-blur-lg w-1/3 h-40 shadow-[0_2px_18px_rgba(200,120,255,0.14)] border border-fuchsia-300/40 flex items-center">
+              <h3 className="font-bold p-5 text-fuchsia-200 drop-shadow-glass">
                 Where innovation meets impact ⚡
               </h3>
             </div>
-            <div className="rounded-xl bg-purple-600 w-full h-40 p-5 box-border">
-              <h3 className="font-bold text-4xl mb-3">Upcoming</h3>
-              <p className="font-medium text-xl">DevVerse - 2026</p>
+            <div className="rounded-xl bg-white/10 backdrop-blur-lg w-full h-40 p-5 box-border shadow-[0_2px_18px_rgba(145,120,255,0.13)] border border-purple-300/30 flex flex-col justify-center">
+              <h3 className="font-bold text-4xl mb-3 text-purple-50 drop-shadow-glass">
+                Upcoming
+              </h3>
+              <p className="font-medium text-xl text-fuchsia-300">
+                DevVerse - 2026
+              </p>
             </div>
           </div>
 
-          {/* //? Leaderboard */}
-          <div className="rounded-2xl bg-gradient-to-b from-[#1a001f] to-[#0a0010] h-88 mt-4 p-5 shadow-[0_0_25px_rgba(120,50,255,0.3)]">
-            {/* //* Leaderboard Header */}
+          {/* Leaderboard */}
+          <div className="rounded-2xl bg-gradient-to-b from-[#1a001f] to-[#0a0010] h-88 mt-4 p-5 shadow-[0_0_25px_rgba(120,50,255,0.3)] relative z-10">
+            {/* Header */}
             <header className="leaderboard-header grid grid-cols-4 text-left text-sm text-zinc-400 font-semibold border-b border-purple-800 pb-3">
               <h4># Rank</h4>
               <h4>Hackathon</h4>
               <h4>Category</h4>
               <h4>Participants</h4>
             </header>
-
-            {/* //* Leaderboard Rows */}
+            {/* Rows */}
             <div className="leaderboard-body mt-3 space-y-2 text-white">
               {[
                 {
@@ -162,6 +173,22 @@ const Hackathon = () => {
               ))}
             </div>
           </div>
+
+          {/* Style for animation classes */}
+          <style>
+            {`
+      .drop-shadow-glass {
+        filter: drop-shadow(0px 2px 24px rgba(200, 120, 255, 0.28));
+      }
+      .animate-move-slow {
+        animation: moveSlow 6s ease-in-out infinite alternate;
+      }
+      @keyframes moveSlow {
+        0% { transform: translateY(0px) scale(1); }
+        100% { transform: translateY(-22px) scale(1.04);}
+      }
+    `}
+          </style>
         </aside>
       </div>
     </section>
