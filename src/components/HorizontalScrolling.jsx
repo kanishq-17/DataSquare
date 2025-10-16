@@ -14,7 +14,7 @@ const HorizontalScrolling = () => {
       x: -textWidth,
       duration: 80,
       ease: "linear",
-      // repeat: -1,
+      repeat: -1,
       modifiers: {
         x: gsap.utils.unitize((x) => parseFloat(x) % textWidth),
       },
