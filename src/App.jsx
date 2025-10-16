@@ -6,6 +6,7 @@ import Hackathon from "./components/Hackathon";
 import MentorshipReferral from "./components/MentorshipReferral";
 import HorizontalScrolling from "./components/HorizontalScrolling";
 import PreFooter from "./components/PreFooter";
+import Footer from "./components/Footer";
 
 const App = () => {
   return (
@@ -18,6 +19,7 @@ const App = () => {
       <MentorshipReferral />
       <HorizontalScrolling />
       <PreFooter />
+      <Footer />
     </div>
   );
 };

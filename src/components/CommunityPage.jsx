@@ -1,4 +1,120 @@
+import gsap from "gsap";
+import React, { useRef } from "react";
+
 const CommunityPage = () => {
+  const jsRef = useRef(null);
+  const nodeRef = useRef(null);
+  const reactRef = useRef(null);
+  const pythonRef = useRef(null);
+  const dockerRef = useRef(null);
+  const illustratorRef = useRef(null);
+
+  const tlRef = useRef(null);
+
+  React.useEffect(() => {
+    const refs = [
+      jsRef.current,
+      nodeRef.current,
+      reactRef.current,
+      pythonRef.current,
+      dockerRef.current,
+      illustratorRef.current,
+    ];
+    gsap.set(refs, { opacity: 0, x: 0, y: 0 });
+  }, []);
+
+  function handleMouseEnter() {
+    const refs = [
+      jsRef.current,
+      nodeRef.current,
+      reactRef.current,
+      pythonRef.current,
+      dockerRef.current,
+      illustratorRef.current,
+    ];
+
+    tlRef.current = gsap.timeline();
+    tlRef.current
+      .to(refs, { opacity: 1, duration: 0.2, stagger: 0.1 })
+      .to(jsRef.current, {
+        x: 2,
+        y: -1,
+        duration: 0.7,
+        // ease: "power2.out",
+        repeat: -1,
+        yoyo: true,
+      })
+      .to(
+        nodeRef.current,
+        {
+          x: 1,
+          y: -2,
+          duration: 0.7,
+          // ease: "power2.out",
+          repeat: -1,
+          yoyo: true,
+        },
+        "<"
+      )
+      .to(
+        reactRef.current,
+        {
+          x: -3,
+          duration: 0.7,
+          // ease: "power2.out",
+          repeat: -1,
+          yoyo: true,
+        },
+        "<"
+      )
+      .to(
+        pythonRef.current,
+        {
+          scale: 1.2,
+          duration: 1,
+          repeat: -1,
+          yoyo: true,
+        },
+        "<"
+      )
+      .to(
+        dockerRef.current,
+        {
+          x: 1,
+          y: 3,
+          duration: 1.2,
+          repeat: -1,
+          yoyo: true,
+        },
+        "<"
+      )
+      .to(
+        illustratorRef.current,
+        {
+          x: -1,
+          y: 2,
+          duration: 0.7,
+          // ease: "power2.out",
+          repeat: -1,
+          yoyo: true,
+        },
+        "<"
+      );
+  }
+
+  function handleMouseLeave() {
+    const refs = [
+      jsRef.current,
+      nodeRef.current,
+      reactRef.current,
+      pythonRef.current,
+      dockerRef.current,
+      illustratorRef.current,
+    ];
+    if (tlRef.current) tlRef.current.kill();
+    gsap.to(refs, { opacity: 0, x: 0, y: 0, duration: 0.5 });
+  }
+
   return (
     <section className="community-section bg-black text-white px-5 pt-25 pb-10">
       {/* community-section heading */}
@@ -22,7 +138,11 @@ const CommunityPage = () => {
         <div className="dashboard-public-task flex flex-col justify-between gap-3 h-full w-1/2">
           {/* area 1 - public-community, trending-domain */}
           <div className="w-full h-2/3 flex justify-between gap-3">
-            <article className="trending-domain w-1/2 h-full rounded-2xl outline outline-purple-300  pt-[12%] pl-5 relative z-20">
+            <article
+              onMouseEnter={() => handleMouseEnter()}
+              onMouseLeave={() => handleMouseLeave()}
+              className="trending-domain w-1/2 h-full rounded-2xl outline outline-purple-300  pt-[12%] pl-5 relative z-20"
+            >
               <h3 className="text-purple-800 font-bold text-3xl mb-3 w-1/2 z-20 relative">
                 What’s Hot Right Now
               </h3>
@@ -31,9 +151,43 @@ const CommunityPage = () => {
               </p>
 
               {/* //* animate div */}
-
-              <div className="animated-div w-full h-full rounded-2xl absolute top-0 left-0 z-0">
-                
+              <div className="animated-div w-full h-full rounded-2xl absolute top-0 left-0 z-0 opacity-40">
+                <img
+                  ref={nodeRef}
+                  src="/node.png"
+                  alt=""
+                  className="w-8 h-8 absolute right-10 top-5"
+                />
+                <img
+                  ref={reactRef}
+                  src="/react.png"
+                  alt=""
+                  className="w-10 h-9 absolute right-18  top-15"
+                />
+                <img
+                  ref={pythonRef}
+                  src="/python.png"
+                  alt=""
+                  className="w-15 h-15 absolute left-40 top-5"
+                />
+                <img
+                  ref={jsRef}
+                  src="/js.png"
+                  alt=""
+                  className="w-8 h-8 absolute left-15 top-10"
+                />
+                <img
+                  ref={illustratorRef}
+                  src="/illustrator.png"
+                  alt=""
+                  className="w-10 h-10 absolute bottom-10 right-4"
+                />
+                <img
+                  ref={dockerRef}
+                  src="/docker.png"
+                  alt=""
+                  className="w-10 h-10 absolute left-60 top-35"
+                />
               </div>
             </article>
 

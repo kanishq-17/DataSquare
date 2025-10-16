@@ -406,7 +406,7 @@ const LandingPage = () => {
                       className="w-full h-full rounded-full object-cover outline-4 outline-neutral-400"
                     />
                     {/* ✅ Badge should be <span> */}
-                    <span className="bg-blue-500 text-white text-[.7rem] font-semibold rounded-full absolute -bottom-1 left-3 px-2">
+                    <span className="bg-blue-500 text-white text-[.7rem] font-semibold rounded-full absolute -bottom-1 left-0 w-full px-2">
                       <DecryptedText
                         speed={50}
                         sequential="true"

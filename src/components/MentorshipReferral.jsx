@@ -52,13 +52,21 @@ const MentorshipReferral = () => {
             className={`card card-${num} w-[90%] h-150 rounded-2xl sticky top-20 
             ${
               index === 0
-                ? "bg-purple-600 shadow-[0px_-28px_50px_12px_rgba(0,0,0,1)]"
+                ? "bg-purple-600 shadow-[0px_-28px_50px_12px_rgba(0,0,0,1)] "
                 : ""
             }
             ${index === 1 ? "bg-blue-600" : ""}
             ${index === 2 ? "bg-teal-600" : ""}
             ${index === 3 ? "bg-orange-600" : ""} relative text-white`}
           >
+            <img
+              src={images[index]}
+              alt="Card BG"
+              className="absolute inset-0 m-auto w-full h-full blur-xl object-cover z-0"
+              style={{ left: 0, right: 0, top: 0, bottom: 0 }} // Centers img in parent
+              aria-hidden="true"
+            />
+
             {/* Card Image */}
             {images.map((img) => (
               <img

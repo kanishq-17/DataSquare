@@ -3,11 +3,11 @@ import { IoPeopleOutline, IoEarthOutline } from "react-icons/io5";
 import { GoGraph } from "react-icons/go";
 import { SlChart } from "react-icons/sl";
 import { FaLaptopCode } from "react-icons/fa";
-import { TbTrophy } from "react-icons/tb"; // 🏆 new icon added
+import { BsLightningCharge } from "react-icons/bs";
 
 const Hackathon = () => {
   return (
-    <section className="hackathon-section w-full bg-[#1A1A1D] px-5 pt-8 pb-10">
+    <section className="hackathon-section w-full bg-[#191919] px-5 pt-8 pb-10">
       {/* //* Hackathon Heading */}
       <header className="hackathon-heading text-center">
         <h1
@@ -43,14 +43,16 @@ const Hackathon = () => {
             {/* //* Hackathon Orbit Area */}
             <div className="hackathon-orbit-area w-full h-92 mt-4 relative">
               {/* //? Inner Circle */}
-              <div className="w-17 h-17 rounded-full bg-orange-600 z-40 absolute top-41 left-45 shadow-[-1px_1px_230px_80px_rgba(214,93,25,0.8)]"></div>
+              <div className="w-17 h-17 rounded-full bg-orange-600 z-40 absolute top-41 left-45 shadow-[-1px_1px_230px_80px_rgba(214,93,25,0.8)] flex justify-center items-center text-black text-4xl">
+                <BsLightningCharge />
+              </div>
 
               {/* //? Outer Circle 1 */}
               <div className="w-40 h-40 rounded-full z-30 absolute top-30 left-34 outline-1 outline-orange-600">
                 <div className="w-10 h-10 rounded-full bg-white z-10 absolute -top-2 left-7 shadow-[-1px_1px_25px_-1px_rgba(214,93,25,1)] flex justify-center items-center text-black text-xl">
                   <FaRegCircleUser />
                 </div>
-                <div className="w-2 h-2 rounded-full absolute top-35 left-31 bg-orange-500"></div>
+                <div className="w-2 h-2 rounded-full absolute top-35 left-31 bg-orange-500 blur-xs"></div>
               </div>
 
               {/* //? Outer Circle 2 */}
@@ -61,7 +63,7 @@ const Hackathon = () => {
                 <div className="w-10 h-10 rounded-full bg-white z-10 absolute top-45 left-58 shadow-[-1px_1px_25px_-1px_rgba(214,93,25,1)] flex justify-center items-center text-black text-xl">
                   <IoEarthOutline />
                 </div>
-                <div className="w-2 h-2 rounded-full bg-orange-500 absolute top-0 left-40 shadow-[-1px_1px_25px_-1px_rgba(214,93,25,1)]"></div>
+                <div className="w-2 h-2 rounded-full bg-orange-500 blur-xs absolute top-0 left-40 shadow-[-1px_1px_25px_-1px_rgba(214,93,25,1)]"></div>
               </div>
 
               {/* //? Outer Circle 3 */}
@@ -75,9 +77,9 @@ const Hackathon = () => {
                 <div className="w-10 h-10 rounded-full bg-white z-10 absolute top-35 -left-4 shadow-[-1px_1px_25px_-1px_rgba(214,93,25,1)] flex justify-center items-center text-black text-xl">
                   <FaLaptopCode />
                 </div>
-                <div className="w-2 h-2 rounded-full bg-orange-800 absolute top-50 left-95"></div>
-                <div className="w-2 h-2 rounded-full bg-orange-700 absolute top-16 left-10"></div>
-                <div className="w-2 h-2 rounded-full bg-orange-700 absolute top-78 left-10"></div>
+                <div className="w-2 h-2 rounded-full bg-orange-800 blur-xs absolute top-50 left-95"></div>
+                <div className="w-2 h-2 rounded-full bg-orange-700 blur-xs absolute top-16 left-10"></div>
+                <div className="w-2 h-2 rounded-full bg-orange-700 blur-xs absolute top-78 left-10"></div>
               </div>
             </div>
           </div>
