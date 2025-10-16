@@ -38,7 +38,7 @@ const LandingPage = () => {
     },
     {
       id: 2,
-      img: "/anupam_mishra.jpg",
+      img: "/rajat.jpg",
       designation: "FULL STACK",
       name: "Rajat Sen",
       username: "@rajatStack",
@@ -49,59 +49,37 @@ const LandingPage = () => {
       lang2: "Node",
       isShow: false,
     },
+    {
+      id: 3,
+      img: "/vinit.jpg",
+      designation: "SpringBoot",
+      name: "Vinit Modi",
+      username: "@modiji",
+      skills: "25",
+      projects: "15",
+      community: "1.7k",
+      lang1: "Java",
+      lang2: "Node",
+      isShow: false,
+    },
   ]);
 
   const [color] = useState([
-    {
-      id: 0,
-      bg: "bg-pink-500",
-      outline: "outline-4 outline-pink-300",
-    },
-    {
-      id: 1,
-      bg: "bg-blue-500",
-      outline: "outline-4 outline-blue-300",
-    },
-    {
-      id: 2,
-      bg: "bg-green-500",
-      outline: "outline-4 outline-green-300",
-    },
-    {
-      id: 3,
-      bg: "bg-yellow-500",
-      outline: "outline-4 outline-yellow-300",
-    },
-    {
-      id: 4,
-      bg: "bg-red-500",
-      outline: "outline-4 outline-red-300",
-    },
+    { id: 0, bg: "bg-pink-500", outline: "outline-4 outline-pink-300" },
+    { id: 1, bg: "bg-blue-500", outline: "outline-4 outline-blue-300" },
+    { id: 2, bg: "bg-green-500", outline: "outline-4 outline-green-300" },
+    { id: 3, bg: "bg-yellow-500", outline: "outline-4 outline-yellow-300" },
+    { id: 4, bg: "bg-red-500", outline: "outline-4 outline-red-300" },
   ]);
 
   const [activity] = useState([
-    {
-      id: 0,
-      text: "Learning",
-      bg: "bg-black",
-      textColor: "text-white",
-    },
-    {
-      id: 1,
-      text: "Collabs",
-      bg: "bg-black",
-      textColor: "text-white",
-    },
-    {
-      id: 2,
-      text: "Challenges",
-      bg: "bg-black",
-      textColor: "text-white",
-    },
+    { id: 0, text: "Learning", bg: "bg-black", textColor: "text-white" },
+    { id: 1, text: "Collabs", bg: "bg-black", textColor: "text-white" },
+    { id: 2, text: "Challenges", bg: "bg-black", textColor: "text-white" },
   ]);
 
   const [feedCards] = useState([
-    // ? array 1
+    // array 1
     [
       {
         img: "/kanishq_sodhani.jpg",
@@ -125,7 +103,7 @@ const LandingPage = () => {
         notification: "LIVE",
       },
     ],
-    // ? array 2
+    // array 2
     [
       {
         img: "/riya_verma.jpg",
@@ -149,7 +127,7 @@ const LandingPage = () => {
         notification: "ONGOING",
       },
     ],
-    // ? array 3
+    // array 3
     [
       {
         img: "/arjun_mehta.jpg",
@@ -176,62 +154,43 @@ const LandingPage = () => {
   ]);
 
   const [userCounter, setUserCounter] = useState(0);
-
-  // * this active counter is attached with "color"
   const [activeCounter, setActiveCounter] = useState(0);
-
-  // * this counter is attached with "activity"
   const [counter, setCounter] = useState(0);
-
-  // * this counter is attached with "feed cards"
   const [feedCounter, setFeedCounter] = useState(0);
 
-  //* change color outline
+  // Update color outline
   function changeOutline() {
     const interval = setInterval(() => {
       setActiveCounter((prev) => (prev + 1) % color.length);
     }, 3000);
-
     return () => clearInterval(interval);
   }
 
-  //* change background and text color
+  // Update BG & text color activity
   function changeBG() {
     const interval = setInterval(() => {
       setCounter((prev) => (prev + 1) % activity.length);
     }, 4000);
-
     return () => clearInterval(interval);
   }
 
-  // * display and change feed cards
+  // Display feed cards
   function displayFeedCard() {
     const interval = setInterval(() => {
       setFeedCounter((count) => (count + 1) % feedCards.length);
     }, 3000);
-
     return () => clearInterval(interval);
   }
 
-  //* display User
+  // Display User
   function displayUser() {
-    // const interval = setInterval(() => {
-    //   setUserCard((prevCard) =>
-    //     prevCard.map((user) => ({
-    //       ...user,
-    //       isShow: !user.isShow,
-    //     }))
-    //   );
-    // }, 5000);
-
     const interval = setInterval(() => {
       setUserCounter((prev) => (prev + 1) % userCard.length);
     }, 5000);
-
     return () => clearInterval(interval);
   }
 
-  //* moving cards
+  // GSAP: Moving cards
   useEffect(() => {
     gsap.to(userCardRef.current, {
       x: 2,
@@ -242,7 +201,6 @@ const LandingPage = () => {
       yoyo: true,
       repeat: -1,
     });
-
     gsap.to(colorPaletteRef.current, {
       x: -2,
       y: -2,
@@ -251,7 +209,6 @@ const LandingPage = () => {
       yoyo: true,
       repeat: -1,
     });
-
     gsap.to(progressCardRef.current, {
       y: -1,
       x: 2,
@@ -260,7 +217,6 @@ const LandingPage = () => {
       yoyo: true,
       repeat: -1,
     });
-
     gsap.to(filterRef.current, {
       x: -2,
       y: 3,
@@ -279,13 +235,20 @@ const LandingPage = () => {
     });
   }, []);
 
-  //* cleaning all functions
+  // Cleanups for all setIntervals
   useEffect(() => {
     const displayCleanUp = displayUser();
     const colorCleanUp = changeOutline();
     const BGCleanUp = changeBG();
     const feedCardCleanUp = displayFeedCard();
-    return displayCleanUp, colorCleanUp, BGCleanUp, feedCardCleanUp;
+
+    // ✨ Fix: Return a cleanup function, not comma separated (JS only returns last value if commas used!)
+    return () => {
+      displayCleanUp();
+      colorCleanUp();
+      BGCleanUp();
+      feedCardCleanUp();
+    };
   }, [color.length, feedCards.length, activity.length, userCard.length]);
 
   return (
