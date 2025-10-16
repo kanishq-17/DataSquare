@@ -9,7 +9,20 @@ const LandingPage = () => {
   const filterRef = useRef(null);
   const leaderboardRef = useRef(null);
 
-  const [userCard, setUserCard] = useState([
+  const [userCard] = useState([
+    {
+      id: 0,
+      img: "/kanishq_sodhani.jpg",
+      designation: "DEVELOPER",
+      name: "Kanishq Sodhani",
+      username: "@virusbaba",
+      skills: "24",
+      projects: "8",
+      community: "1.2k",
+      lang1: "JavaScript",
+      lang2: "React",
+      isShow: true,
+    },
     {
       id: 1,
       img: "/anupam_mishra.jpg",
@@ -21,19 +34,19 @@ const LandingPage = () => {
       community: "2.5k",
       lang1: "Python",
       lang2: "SQL",
-      isShow: true,
+      isShow: false,
     },
     {
       id: 2,
-      img: "/kanishq_sodhani.jpg",
-      designation: "DEVELOPER",
-      name: "Kanishq Sodhani",
-      username: "@virusbaba",
-      skills: "24",
-      projects: "8",
-      community: "1.2k",
-      lang1: "JavaScript",
-      lang2: "React",
+      img: "/anupam_mishra.jpg",
+      designation: "FULL STACK",
+      name: "Rajat Sen",
+      username: "@rajatStack",
+      skills: "20",
+      projects: "10",
+      community: "950",
+      lang1: "Next",
+      lang2: "Node",
       isShow: false,
     },
   ]);
@@ -162,6 +175,8 @@ const LandingPage = () => {
     ],
   ]);
 
+  const [userCounter, setUserCounter] = useState(0);
+
   // * this active counter is attached with "color"
   const [activeCounter, setActiveCounter] = useState(0);
 
@@ -200,13 +215,17 @@ const LandingPage = () => {
 
   //* display User
   function displayUser() {
+    // const interval = setInterval(() => {
+    //   setUserCard((prevCard) =>
+    //     prevCard.map((user) => ({
+    //       ...user,
+    //       isShow: !user.isShow,
+    //     }))
+    //   );
+    // }, 5000);
+
     const interval = setInterval(() => {
-      setUserCard((prevCard) =>
-        prevCard.map((user) => ({
-          ...user,
-          isShow: !user.isShow,
-        }))
-      );
+      setUserCounter((prev) => (prev + 1) % userCard.length);
     }, 5000);
 
     return () => clearInterval(interval);
@@ -267,30 +286,32 @@ const LandingPage = () => {
     const BGCleanUp = changeBG();
     const feedCardCleanUp = displayFeedCard();
     return displayCleanUp, colorCleanUp, BGCleanUp, feedCardCleanUp;
-  }, [color.length, feedCards.length, activity.length]);
+  }, [color.length, feedCards.length, activity.length, userCard.length]);
 
   return (
     <div className="landing-page bg-black flex flex-col justify-start">
       {/* 🌟 SECTION 1: INTRO TEXT / HERO AREA */}
       <div className="pt-10">
         <div className="intro-text text-white text-center">
-          {/* ✅ Improved text for broader audience (not just developers) */}
-          <h4 className="text-sm text-zinc-400">
+          {/* ✅ Changed <h4> → <p> because this is a small supporting text */}
+          <p className="text-sm text-zinc-400">
             🔅 Rated 5.0 ⭐ by 143 learners, creators & innovators 🔅
-          </h4>
-
-          {/* ✅ More dynamic and inspiring headline */}
-          <h1 className="font-extrabold text-6xl w-2/3 m-auto my-5 leading-tight">
-            Learn. Create. Collaborate — with the next generation of thinkers.
-          </h1>
-
-          {/* ✅ Updated subtext for inclusivity across domains */}
-          <p className="text-neutral-400 mb-8 text-lg max-w-2xl mx-auto">
-            From AI to Design, Frontend to Product — DataSquare brings together
-            passionate minds to upskill, collaborate, and grow together.
           </p>
 
-          {/* ✅ Improved CTA (dual-action style like the reference image) */}
+          {/* ✅ h1 is perfect for main heading */}
+          <h1 className="font-extrabold text-6xl w-full m-auto my-5 leading-tight">
+            LEARN. CREATE. COLLABORATE.
+            <br />
+            with the next generation of thinkers.
+          </h1>
+
+          {/* ✅ Subtext should be a <h3> for secondary importance */}
+          <h3 className="text-neutral-400 mb-8 text-lg max-w-2xl mx-auto font-normal">
+            From AI to Design, Frontend to Product — DataSquare brings together
+            passionate minds to upskill, collaborate, and grow together.
+          </h3>
+
+          {/* ✅ CTA buttons stay inside a <div> */}
           <div className="flex justify-center items-center gap-4">
             <button className="bg-gradient-to-r from-indigo-500 to-blue-600 rounded-md px-8 py-3 font-semibold text-white cursor-pointer shadow-md hover:scale-105 transition-all duration-300">
               Join the Community
@@ -320,41 +341,43 @@ const LandingPage = () => {
               ))}
             </div>
 
-            {/* ✅ Renamed and re-purposed */}
+            {/* ✅ Card title area */}
             <div
               ref={progressCardRef}
               className="task-progress bg-zinc-200 outline-3 outline-white rounded-3xl w-full h-full px-5 py-3"
             >
-              {/* Tabs for type of activity */}
-
               <div className="flex gap-3 items-center">
                 {activity.map((active, index) => (
-                  <h3
+                  <h4
                     key={index}
                     className={`${counter === index ? active.bg : ""} ${
                       counter === index ? active.textColor : ""
                     }  rounded-xl px-3 py-2`}
                   >
                     {active.text}
-                  </h3>
+                  </h4>
                 ))}
               </div>
 
               {/* 🧑‍💻 Dynamic activity feed cards */}
               <div className="Learning-status mt-5 flex flex-col gap-3 max-h-66">
-                {/* User Activity 1 */}
                 {feedCards[feedCounter].map((singleCard) => (
-                  <div className="relative bg-white rounded-3xl py-3 px-5 flex items-center gap-3">
-                    <p className="bg-green-500 text-white text-[.6rem] rounded-full p-1 absolute -top-2 left-24">
+                  <div
+                    key={singleCard.name}
+                    className="relative bg-white rounded-3xl py-3 px-5 flex items-center gap-3"
+                  >
+                    {/* ✅ This is a badge — <span> fits best */}
+                    <span className="bg-green-500 text-white text-[.6rem] rounded-full p-1 absolute -top-2 left-24">
                       {singleCard.notification}
-                    </p>
+                    </span>
                     <img
                       src={singleCard.img}
-                      alt=""
+                      alt={singleCard.name}
                       className="w-10 h-10 bg-yellow-400 rounded-full object-cover"
                     />
                     <div>
-                      <h4 className="font-semibold">{singleCard.name}</h4>
+                      {/* ✅ Changed <h4> → <h5> for better nesting */}
+                      <h5 className="font-semibold">{singleCard.name}</h5>
                       <p className="text-sm text-zinc-600">{singleCard.task}</p>
                     </div>
                     <p className="ml-auto text-sm text-zinc-500">
@@ -367,24 +390,23 @@ const LandingPage = () => {
           </div>
 
           {/* 🧠 CARD 2: Featured Profile / Learner Spotlight */}
-
           <div ref={userCardRef} className="card2 user-card w-1/4 mt-25">
-            {userCard.map((user) => (
+            {userCard.map((user, index) => (
               <div
                 key={user.id}
                 className={`relative w-full bg-zinc-200 rounded-3xl outline-white p-4 flex flex-col justify-center gap-3 shadow-lg ${
-                  user.isShow ? "" : "hidden"
+                  userCounter === index ? "" : "hidden"
                 } `}
               >
-                {/* Profile Section */}
                 <div className="user-details bg-white w-full text-center h-1/2 rounded-2xl">
                   <div className="user-img w-22 h-22 absolute -top-5 left-37">
                     <img
                       src={user.img}
-                      alt=""
+                      alt={user.name}
                       className="w-full h-full rounded-full object-cover outline-4 outline-neutral-400"
                     />
-                    <h5 className="bg-blue-500 text-white text-[.7rem] font-semibold rounded-full absolute -bottom-1 left-3 px-2">
+                    {/* ✅ Badge should be <span> */}
+                    <span className="bg-blue-500 text-white text-[.7rem] font-semibold rounded-full absolute -bottom-1 left-3 px-2">
                       <DecryptedText
                         speed={50}
                         sequential="true"
@@ -392,10 +414,11 @@ const LandingPage = () => {
                         useOriginalCharsOnly="true"
                         text={user.designation}
                       />
-                    </h5>
+                    </span>
                   </div>
 
-                  <h2 className="font-extrabold text-2xl mt-15 mb-1">
+                  {/* ✅ h2 → h3 (since h1 used already) */}
+                  <h3 className="font-extrabold text-2xl mt-15 mb-1 font-Sansation">
                     <DecryptedText
                       speed={50}
                       sequential="true"
@@ -403,7 +426,7 @@ const LandingPage = () => {
                       useOriginalCharsOnly="true"
                       text={user.name}
                     />
-                  </h2>
+                  </h3>
                   <h5 className="font-medium text-zinc-500">
                     <DecryptedText
                       speed={50}
@@ -416,7 +439,7 @@ const LandingPage = () => {
 
                   <div className="user-highlight-area flex justify-around items-center w-full my-5">
                     <div>
-                      <h2 className="font-bold">
+                      <h4 className="font-bold">
                         <DecryptedText
                           speed={50}
                           sequential="true"
@@ -424,11 +447,11 @@ const LandingPage = () => {
                           useOriginalCharsOnly="true"
                           text={user.skills}
                         />
-                      </h2>
-                      <h5 className="text-zinc-500 text-center">Skills</h5>
+                      </h4>
+                      <p className="text-zinc-500 text-center">Skills</p>
                     </div>
                     <div>
-                      <h2 className="font-bold">
+                      <h4 className="font-bold">
                         <DecryptedText
                           speed={50}
                           sequential="true"
@@ -436,12 +459,11 @@ const LandingPage = () => {
                           useOriginalCharsOnly="true"
                           text={user.projects}
                         />
-                      </h2>
-                      <h5 className="text-zinc-500">Projects</h5>
+                      </h4>
+                      <p className="text-zinc-500">Projects</p>
                     </div>
                     <div>
-                      <h2 className="font-bold">
-                        {" "}
+                      <h4 className="font-bold">
                         <DecryptedText
                           speed={50}
                           sequential="true"
@@ -449,16 +471,15 @@ const LandingPage = () => {
                           useOriginalCharsOnly="true"
                           text={user.community}
                         />
-                      </h2>
-                      <h5 className="text-zinc-500">Community</h5>
+                      </h4>
+                      <p className="text-zinc-500">Community</p>
                     </div>
                   </div>
                 </div>
 
-                {/* Skills Section */}
                 <div className="user-skills w-full text-left h-36 flex flex-col justify-between font-semibold">
                   <div className="rounded-xl bg-white py-2 px-4">
-                    <h3>
+                    <h5>
                       <DecryptedText
                         speed={50}
                         sequential="true"
@@ -467,10 +488,10 @@ const LandingPage = () => {
                         text={user.lang1}
                       />
                       <span className="text-neutral-600"> Expert</span>
-                    </h3>
+                    </h5>
                   </div>
                   <div className="rounded-xl bg-white py-2 px-4">
-                    <h3>
+                    <h5>
                       <DecryptedText
                         speed={50}
                         sequential="true"
@@ -479,10 +500,10 @@ const LandingPage = () => {
                         text={user.lang2}
                       />
                       <span className="text-neutral-600"> Advanced</span>
-                    </h3>
+                    </h5>
                   </div>
                   <div className="rounded-xl bg-neutral-300 py-2 px-4">
-                    <h3>Add Skill</h3>
+                    <h5>Add Skill</h5>
                   </div>
                 </div>
               </div>
@@ -491,32 +512,20 @@ const LandingPage = () => {
 
           {/* 🏆 CARD 3: Quick Filter + Leaderboard */}
           <div className="card3 w-1/3 flex flex-col gap-8">
-            {/* Quick Filter */}
             <div
               ref={filterRef}
               className="quick-filter w-2/4 rounded-2xl bg-zinc-200 py-4 px-2"
             >
               <div className="icons flex justify-center items-center gap-5">
-                <div className="text-center">
-                  <div className="w-10 h-8 bg-black rounded-lg"></div>
-                  <h4 className="mt-3 font-semibold">AI</h4>
-                </div>
-                <div className="text-center">
-                  <div className="w-10 h-8 bg-black rounded-lg"></div>
-                  <h4 className="mt-3 font-semibold">SDE</h4>
-                </div>
-                <div className="text-center">
-                  <div className="w-10 h-8 bg-black rounded-lg"></div>
-                  <h4 className="mt-3 font-semibold">Design</h4>
-                </div>
-                <div className="text-center">
-                  <div className="w-10 h-8 bg-black rounded-lg"></div>
-                  <h4 className="mt-3 font-semibold">Product</h4>
-                </div>
+                {["AI", "SDE", "Design", "Product"].map((title, i) => (
+                  <div key={i} className="text-center">
+                    <div className="w-10 h-8 bg-black rounded-lg"></div>
+                    <h5 className="mt-3 font-semibold">{title}</h5>
+                  </div>
+                ))}
               </div>
             </div>
 
-            {/* Leaderboard */}
             <div
               ref={leaderboardRef}
               className="Leaderboard w-3/4 rounded-2xl bg-zinc-200"
@@ -532,7 +541,7 @@ const LandingPage = () => {
                 >
                   <div className={`w-10 h-10 rounded-full ${user.color}`}></div>
                   <div>
-                    <h4 className="font-semibold">{user.name}</h4>
+                    <h5 className="font-semibold">{user.name}</h5>
                     <p className="text-zinc-500">{user.points} Points</p>
                   </div>
                 </div>
@@ -542,7 +551,7 @@ const LandingPage = () => {
         </div>
 
         {/* 🌈 SECTION 3: FOOTER TAGLINE */}
-        <p className="italic text-zinc-400 text-center font-semibold mt-5">
+        <p className="font-Charm text-zinc-400 text-center font-semibold mt-5">
           Because learning is better when we build together.
         </p>
       </div>

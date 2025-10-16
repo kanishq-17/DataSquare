@@ -1,1 +1,30 @@
+@import url("https://fonts.googleapis.com/css2?family=Charm:wght@400;700&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&family=Sansation:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Zen+Dots&display=swap");
+
 @import "tailwindcss";
+
+@theme {
+  --font-ZenDots: "Zen Dots", "sans-serif";
+  --font-Sansation: "Sansation", "sans-serif";
+  --font-Charm: "Charm", "cursive";
+  --font-Roboto: "Roboto", "sans-serif";
+  --font-Montserrat: "Montserrat", "sans-serif";
+}
+
+h1 {
+  font-family: Zen Dots;
+}
+
+h2,
+h3 {
+  font-family: Sansation;
+}
+
+h4,
+h5,
+h6 {
+  font-family: Montserrat;
+}
+
+p {
+  font-family: Roboto;
+}

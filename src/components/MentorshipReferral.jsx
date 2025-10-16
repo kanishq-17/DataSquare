@@ -27,7 +27,7 @@ const MentorshipReferral = () => {
         filter: "blur(8px)", // add blur for nice depth
         scrollTrigger: {
           trigger: card,
-          start: "top 15%", // when top of card hits viewport center
+          start: "top 12%", // when top of card hits viewport center
           end: "bottom top", // when bottom leaves top of viewport
           scrub: true, // smooth transition
           // markers: true, // uncomment to debug
@@ -37,29 +37,40 @@ const MentorshipReferral = () => {
   }, []);
 
   return (
-    <div className="w-full bg-black py-20 px-5 min-h-screen relative">
-      <h1 className="text-white text-center text-9xl font-bold absolute top-0 left-1/4">
-        Key Features
-      </h1>
-      <div className="referral-container flex flex-col justify-center items-center gap-6 z-10 mt-5">
+    <section className="w-full bg-black py-20 px-5 min-h-screen relative">
+      {/* Section Heading */}
+      <header className="text-white text-center text-9xl font-bold absolute top-0 left-1/7 z-0 mt-25 ">
+        <h1>Key Features</h1>
+      </header>
+
+      {/* Referral Cards */}
+      <div className="referral-container flex flex-col justify-center items-center gap-6 z-10 mt-32 ">
         {[1, 2, 3, 4].map((num, index) => (
-          <div
+          <article
             key={num}
             ref={(el) => (cardsRef.current[index] = el)}
             className={`card card-${num} w-[90%] h-150 rounded-2xl sticky top-20 
-              ${index === 0 ? "bg-purple-600" : ""}
-              ${index === 1 ? "bg-blue-600" : ""}
-              ${index === 2 ? "bg-teal-600" : ""}
-              ${index === 3 ? "bg-orange-600" : ""} relative text-white`}
+            ${
+              index === 0
+                ? "bg-purple-600 shadow-[0px_-28px_50px_12px_rgba(0,0,0,1)]"
+                : ""
+            }
+            ${index === 1 ? "bg-blue-600" : ""}
+            ${index === 2 ? "bg-teal-600" : ""}
+            ${index === 3 ? "bg-orange-600" : ""} relative text-white`}
           >
+            {/* Card Image */}
             {images.map((img) => (
               <img
+                key={img}
                 src={images[index]}
-                alt=""
+                alt="Feature Visual"
                 className="w-80 h-80 outline outline-white absolute top-1/4 left-125"
               />
             ))}
-            <h4 className="font-semibold absolute top-15 w-1/4 left-15 text-xl">
+
+            {/* Description */}
+            <p className="font-semibold absolute top-15 w-1/4 left-15 text-xl leading-relaxed">
               {index === 0
                 ? "Learn from experienced mentors who’ve walked the path you’re on. Get one-on-one guidance, feedback, and roadmaps tailored to your goals."
                 : ""}
@@ -72,14 +83,18 @@ const MentorshipReferral = () => {
               {index === 3
                 ? "Every success story starts with a small push. Inspire others by sharing your journey — from mentee to mentor."
                 : ""}
-            </h4>
-            <h1 className="font-semibold pl-15 text-7xl w-1/3 absolute bottom-15 ">
+            </p>
+
+            {/* Card Title */}
+            <h2 className="font-semibold pl-15 text-7xl w-1/3 absolute bottom-15">
               {index === 0 ? "Find Your Mentor" : ""}
               {index === 1 ? "Build Together" : ""}
               {index === 2 ? "Earn Referrals" : ""}
               {index === 3 ? "Become the Next Guide" : ""}
-            </h1>
-            <h3 className="absolute right-25 top-1/3 w-1/5 font-light text-2xl">
+            </h2>
+
+            {/* Card Subtext */}
+            <h3 className="absolute right-25 top-1/3 w-1/5 font-light text-2xl leading-snug">
               {index === 0
                 ? "Personalized mentorship for every domain — coding, design, AI, product, and beyond."
                 : ""}
@@ -93,10 +108,10 @@ const MentorshipReferral = () => {
                 ? "Grow the circle — teach what you’ve learned, mentor others, and shape future creators."
                 : ""}
             </h3>
-          </div>
+          </article>
         ))}
       </div>
-    </div>
+    </section>
   );
 };
 

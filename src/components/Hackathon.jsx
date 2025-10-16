@@ -1,143 +1,166 @@
+import { FaRegCircleUser } from "react-icons/fa6";
+import { IoPeopleOutline, IoEarthOutline } from "react-icons/io5";
+import { GoGraph } from "react-icons/go";
+import { SlChart } from "react-icons/sl";
+import { FaLaptopCode } from "react-icons/fa";
+import { TbTrophy } from "react-icons/tb"; // 🏆 new icon added
+
 const Hackathon = () => {
   return (
     <section className="hackathon-section w-full bg-[#1A1A1D] px-5 pt-8 pb-10">
-      {/* //* hackathon heading */}
-      <div className="hackathon-heading text-center">
-        <h1 className="font-extrabold text-8xl mb-5">
+      {/* //* Hackathon Heading */}
+      <header className="hackathon-heading text-center">
+        <h1
+          className="font-extrabold text-[5rem] mb-10 bg-clip-text text-transparent [text-shadow:_0px_0px_50px_rgba(187,41,28,1)]"
+          style={{
+            backgroundImage: "url('/light-trail-text-bg.png",
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+            WebkitBackgroundClip: "text",
+            color: "transparent",
+          }}
+        >
           Innovate. Compete. Dominate.
         </h1>
-        <h3 className="text-neutral-400 text-2xl font-extralight">
+        {/* <h2 className="text-neutral-400 text-2xl font-extralight">
           The ultimate battlefield of innovation awaits.
-        </h3>
-      </div>
+        </h2> */}
+      </header>
 
-      {/*  //* hackathon content */}
-      <div className="hackathon-content w-full h-134 mt-10   flex justify-end items-center gap-15">
+      {/* //* Hackathon Content */}
+      <div className="hackathon-content w-full h-134 mt-10 flex justify-end items-center gap-15">
         {/* //* Hackathon Orbit */}
-        <div className="hackathon-orbit h-full bg-transparent w-1/3 rounded-2xl p-2 outline outline-neutral-500">
+        <article className="hackathon-orbit h-full bg-transparent w-1/3 rounded-2xl p-2 outline outline-neutral-500">
           <div className="bg-[#262726]/80 h-full w-full rounded-xl p-5 text-white">
-            <h1 className="font-bold text-2xl mb-2">
+            <h2 className="font-bold text-2xl mb-2">
               Evolve Through Every Challenge
-            </h1>
+            </h2>
             <p className="text-sm w-3/4 text-zinc-400">
               A dynamic space for creators to showcase ideas, solve real
               problems, and stand out from the crowd.
             </p>
-            {/* //*hackathon orbit area */}
-            <div className="hackathon-orbit-area w-full h-92 mt-4 relative ">
-              {/* //? inner circle */}
-              <div className="w-17 h-17 rounded-full bg-orange-600 z-40 absolute top-41 left-45"></div>
 
-              {/* //? outer circle 1*/}
+            {/* //* Hackathon Orbit Area */}
+            <div className="hackathon-orbit-area w-full h-92 mt-4 relative">
+              {/* //? Inner Circle */}
+              <div className="w-17 h-17 rounded-full bg-orange-600 z-40 absolute top-41 left-45 shadow-[-1px_1px_230px_80px_rgba(214,93,25,0.8)]"></div>
+
+              {/* //? Outer Circle 1 */}
               <div className="w-40 h-40 rounded-full z-30 absolute top-30 left-34 outline-1 outline-orange-600">
-                <div className="w-10 h-10 rounded-full bg-white absolute -top-2 left-7"></div>
+                <div className="w-10 h-10 rounded-full bg-white z-10 absolute -top-2 left-7 shadow-[-1px_1px_25px_-1px_rgba(214,93,25,1)] flex justify-center items-center text-black text-xl">
+                  <FaRegCircleUser />
+                </div>
                 <div className="w-2 h-2 rounded-full absolute top-35 left-31 bg-orange-500"></div>
               </div>
 
-              {/* //? outer circle 2*/}
-              <div className="w-68 h-68 rounded-full  z-20 absolute top-16 left-20 outline outline-orange-700">
-                <div className="w-10 h-10 rounded-full bg-white absolute top-45 left-0"></div>
-                <div className="w-10 h-10 rounded-full bg-white absolute top-45 left-58"></div>
-                <div className="w-2 h-2 rounded-full bg-orange-500 absolute top-0 left-40"></div>
+              {/* //? Outer Circle 2 */}
+              <div className="w-68 h-68 rounded-full z-20 absolute top-16 left-20 outline outline-orange-700">
+                <div className="w-10 h-10 rounded-full bg-white z-10 absolute top-45 left-0 shadow-[-1px_1px_25px_-1px_rgba(214,93,25,1)] flex justify-center items-center text-black text-xl">
+                  <IoPeopleOutline />
+                </div>
+                <div className="w-10 h-10 rounded-full bg-white z-10 absolute top-45 left-58 shadow-[-1px_1px_25px_-1px_rgba(214,93,25,1)] flex justify-center items-center text-black text-xl">
+                  <IoEarthOutline />
+                </div>
+                <div className="w-2 h-2 rounded-full bg-orange-500 absolute top-0 left-40 shadow-[-1px_1px_25px_-1px_rgba(214,93,25,1)]"></div>
               </div>
 
-              {/* //? outer circle 3*/}
+              {/* //? Outer Circle 3 */}
               <div className="w-96 h-96 rounded-full z-10 absolute top-2 left-6 box-border outline-1 outline-dashed outline-orange-700">
-                <div className="w-10 h-10 rounded-full bg-white absolute top-87 left-25"></div>
-                <div className="w-10 h-10 rounded-full bg-white absolute top-7 left-75"></div>
-                <div className="w-10 h-10 rounded-full bg-white absolute top-35 -left-4"></div>
+                <div className="w-10 h-10 rounded-full bg-white z-10 absolute top-87 left-25 shadow-[-1px_1px_25px_-1px_rgba(214,93,25,1)] flex justify-center items-center text-black text-xl">
+                  <GoGraph />
+                </div>
+                <div className="w-10 h-10 rounded-full bg-white z-10 absolute top-7 left-75 shadow-[-1px_1px_25px_-1px_rgba(214,93,25,1)] flex justify-center items-center text-black text-xl">
+                  <SlChart />
+                </div>
+                <div className="w-10 h-10 rounded-full bg-white z-10 absolute top-35 -left-4 shadow-[-1px_1px_25px_-1px_rgba(214,93,25,1)] flex justify-center items-center text-black text-xl">
+                  <FaLaptopCode />
+                </div>
                 <div className="w-2 h-2 rounded-full bg-orange-800 absolute top-50 left-95"></div>
                 <div className="w-2 h-2 rounded-full bg-orange-700 absolute top-16 left-10"></div>
                 <div className="w-2 h-2 rounded-full bg-orange-700 absolute top-78 left-10"></div>
               </div>
             </div>
           </div>
-        </div>
+        </article>
+
         {/* //* Hackathon Leaderboard */}
-        <div className="hackathon-leaderboard bg-fuchsia-500 w-1/2 rounded-2xl p-2">
-          {/* //? leaderboard info */}
+        <aside className="hackathon-leaderboard bg-fuchsia-500 w-1/2 rounded-2xl p-2">
+          {/* //? Leaderboard Info */}
           <div className="leaderboard-info flex justify-start items-center gap-2">
             <div className="rounded-xl bg-purple-500 w-1/3 h-40">
-              <h2 className="font-bold p-5">
+              <h3 className="font-bold p-5">
                 Where innovation meets impact ⚡
-              </h2>
+              </h3>
             </div>
             <div className="rounded-xl bg-purple-600 w-full h-40 p-5 box-border">
-              <h2 className="font-bold text-4xl mb-3">Upcoming</h2>
+              <h3 className="font-bold text-4xl mb-3">Upcoming</h3>
               <p className="font-medium text-xl">DevVerse - 2026</p>
             </div>
           </div>
 
-          {/* //? leaderboard */}
+          {/* //? Leaderboard */}
           <div className="rounded-2xl bg-gradient-to-b from-[#1a001f] to-[#0a0010] h-88 mt-4 p-5 shadow-[0_0_25px_rgba(120,50,255,0.3)]">
             {/* //* Leaderboard Header */}
-            <div className="leaderboard-header grid grid-cols-4 text-left text-sm text-zinc-400 font-semibold border-b border-purple-800 pb-3">
-              <h3># Rank</h3>
-              <h3>Hackathon</h3>
-              <h3>Category</h3>
-              <h3>Participants</h3>
-            </div>
+            <header className="leaderboard-header grid grid-cols-4 text-left text-sm text-zinc-400 font-semibold border-b border-purple-800 pb-3">
+              <h4># Rank</h4>
+              <h4>Hackathon</h4>
+              <h4>Category</h4>
+              <h4>Participants</h4>
+            </header>
 
             {/* //* Leaderboard Rows */}
             <div className="leaderboard-body mt-3 space-y-2 text-white">
-              {/* //! Row 1 */}
-              <div className="flex justify-between items-center bg-gradient-to-r from-purple-800/40 to-fuchsia-700/30 hover:from-purple-700/60 hover:to-fuchsia-600/40 transition-all duration-300 rounded-xl py-2 px-3 shadow-[0_0_12px_rgba(180,80,255,0.3)]">
-                <p className="w-1/4 text-center font-bold text-purple-300">
-                  #1
-                </p>
-                <p className="w-1/4 text-center">Hack the Future</p>
-                <p className="w-1/4 text-center text-zinc-300">AI & ML</p>
-                <p className="w-1/4 text-center text-zinc-400">1.2k+</p>
-              </div>
-
-              {/* //! Row 2 */}
-              <div className="flex justify-between items-center bg-gradient-to-r from-purple-800/30 to-pink-700/20 hover:from-purple-700/50 hover:to-pink-600/30 transition-all duration-300 rounded-xl py-2 px-3">
-                <p className="w-1/4 text-center font-bold text-purple-300">
-                  #2
-                </p>
-                <p className="w-1/4 text-center">Build For Bharat</p>
-                <p className="w-1/4 text-center text-zinc-300">
-                  Web3 & Blockchain
-                </p>
-                <p className="w-1/4 text-center text-zinc-400">900+</p>
-              </div>
-
-              {/* //! Row 3 */}
-              <div className="flex justify-between items-center bg-gradient-to-r from-purple-800/30 to-pink-700/20 hover:from-purple-700/50 hover:to-pink-600/30 transition-all duration-300 rounded-xl py-2 px-3">
-                <p className="w-1/4 text-center font-bold text-purple-300">
-                  #3
-                </p>
-                <p className="w-1/4 text-center">Code For Change</p>
-                <p className="w-1/4 text-center text-zinc-300">
-                  Sustainability
-                </p>
-                <p className="w-1/4 text-center text-zinc-400">780+</p>
-              </div>
-
-              {/* //! Row 4 */}
-              <div className="flex justify-between items-center bg-gradient-to-r from-purple-800/30 to-pink-700/20 hover:from-purple-700/50 hover:to-pink-600/30 transition-all duration-300 rounded-xl py-2 px-3">
-                <p className="w-1/4 text-center font-bold text-purple-300">
-                  #4
-                </p>
-                <p className="w-1/4 text-center">Designverse</p>
-                <p className="w-1/4 text-center text-zinc-300">
-                  UI/UX & Creativity
-                </p>
-                <p className="w-1/4 text-center text-zinc-400">560+</p>
-              </div>
-
-              {/* //! Row 5 */}
-              <div className="flex justify-between items-center bg-gradient-to-r from-purple-800/30 to-pink-700/20 hover:from-purple-700/50 hover:to-pink-600/30 transition-all duration-300 rounded-xl py-2 px-3">
-                <p className="w-1/4 text-center font-bold text-purple-300">
-                  #5
-                </p>
-                <p className="w-1/4 text-center">AI Arena</p>
-                <p className="w-1/4 text-center text-zinc-300">Deep Learning</p>
-                <p className="w-1/4 text-center text-zinc-400">1.5k+</p>
-              </div>
+              {[
+                {
+                  rank: "#1",
+                  name: "Hack the Future",
+                  category: "AI & ML",
+                  participants: "1.2k+",
+                },
+                {
+                  rank: "#2",
+                  name: "Build For Bharat",
+                  category: "Web3 & Blockchain",
+                  participants: "900+",
+                },
+                {
+                  rank: "#3",
+                  name: "Code For Change",
+                  category: "Sustainability",
+                  participants: "780+",
+                },
+                {
+                  rank: "#4",
+                  name: "Designverse",
+                  category: "UI/UX & Creativity",
+                  participants: "560+",
+                },
+                {
+                  rank: "#5",
+                  name: "AI Arena",
+                  category: "Deep Learning",
+                  participants: "1.5k+",
+                },
+              ].map((item, index) => (
+                <div
+                  key={index}
+                  className="flex justify-between items-center bg-gradient-to-r from-purple-800/40 to-fuchsia-700/30 hover:from-purple-700/60 hover:to-fuchsia-600/40 transition-all duration-300 rounded-xl py-2 px-3 shadow-[0_0_12px_rgba(180,80,255,0.3)]"
+                >
+                  <p className="w-1/4 text-center font-bold text-purple-300">
+                    {item.rank}
+                  </p>
+                  <p className="w-1/4 text-center">{item.name}</p>
+                  <p className="w-1/4 text-center text-zinc-300">
+                    {item.category}
+                  </p>
+                  <p className="w-1/4 text-center text-zinc-400">
+                    {item.participants}
+                  </p>
+                </div>
+              ))}
             </div>
           </div>
-        </div>
+        </aside>
       </div>
     </section>
   );
