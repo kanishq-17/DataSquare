@@ -7,13 +7,14 @@ const HorizontalScrolling = () => {
 
   useEffect(() => {
     const text = slideTextRef.current;
-    // const wrapper = wrapperRef.current;
+    const wrapper = wrapperRef.current;
     const textWidth = text.offsetWidth;
 
     gsap.to(text, {
       x: -textWidth,
       duration: 80,
       ease: "linear",
+      yoyo: true,
       repeat: -1,
       modifiers: {
         x: gsap.utils.unitize((x) => parseFloat(x) % textWidth),
